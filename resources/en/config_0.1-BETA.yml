@@ -1,0 +1,42 @@
+#      _   _                  ___ _             _        _    _
+#     /_\ | |___ _ _  ___ ___| _ \ |__ _ __ ___| |_  ___| |__| |___ _ _ ___
+#    / _ \| / _ \ ' \(_-</ _ \  _/ / _` / _/ -_) ' \/ _ \ / _` / -_) '_(_-<
+#   /_/ \_\_\___/_||_/__/\___/_| |_\__,_\__\___|_||_\___/_\__,_\___|_| /__/
+#                           by AlonsoAliaga
+#          https://www.spigotmc.org/resources/authors/281176/
+#              Support server: alonsoaliaga.com/discord
+#        Subscribe to my Youtube channel: alonsoaliaga.com/play
+#          Subscribe to my Twitch: alonsoaliaga.com/twitch
+#           Donate using Paypal: alonsoaliaga.com/donate
+Messages:
+  No-permission: "&cYou don't have permission to do this."
+  Reloaded: "&aSome messages and options have been reloaded. Others may require a restart!"
+  Invalid-player: "&cPlayer is not online!"
+  Help:
+    Admin:
+    - "&c /alonsoplaceholders reload &f- &dReload configuration (Restart recommended)"
+    User: []
+
+Permissions:
+  #Permission required to perform /alonsoplaceholder command.
+  #Set to "none" to not require permission.
+  Main: "none" #Example: "alonsoplaceholder.main"
+  Admin: "alonsoplaceholders.admin"
+
+Options:
+  Debug: false
+  Command:
+    Aliases:
+    - "aplaceholders"
+
+Updates:
+  #Auto update configuration? Enabling will delete comments.
+  Auto-update-configuration: true
+  #Check for updates? Recommended to keep it enabled.
+  Check-updates: true
+  #Notify updates when player with permission joins the server?
+  Notify-updates: true
+  #Permission required to receive update message.
+  Permission: "alonsoplaceholders.update"
+  #Message to send when update is found.
+  Message: "&6[AlonsoPlaceholders] &eA new update has been found! You are using version {CURRENT}. Download version {NEW} here &c{LINK}"
