@@ -1,0 +1,261 @@
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# MUST READ BEFORE USING: THE FOLLOWING ARE ONLY EXAMPLES, YOU CAN EDIT ALL OF THEM TO FIT YOUR NEEDS.
+# Only PLACEHOLDER and PLACEHOLDER_STATIC type support REGEX expressions. That WON't CHANGE, don't insist.
+# Make sure you read EVERYTHING before configuring the plugin and create your placeholders.
+# Remember that this is read when placeholder is requested. Don't MAKE THIS too heavy or it could affect server performance.
+# When using regex, you can test your expressions in a site like https://alonsoaliaga.com/test-regex
+# To use regex YOU MUST HAVE KNOWLEDGE ABOUT IT. If you don't know how to use it, make some research and learn from videos/sites.
+# I'M A DEVELOPER. I cannot help you with Regex as it takes too much time for testing.
+# If you know how to use it, do it, if not, learn about it or ask someone to do it for you.
+# For PERMISSION and PERMISSION_STATIC type you MUST use commas instead of periods for permissions, they will be replaced internally with periods.
+Placeholders:
+  #You can create as many placeholders as you want.
+  #These identifier names are used internally. They must be unique in this config file.
+  #Recommended to use names in lowercase and only include letters, numbers and dashes.
+  permission-placeholder-example:
+    #This is the parameter that will be added to the main placeholder (which cannot be changed)
+    #everything specified here will be added like "alonsoplaceholders_YOUR_INPUT_HERE"
+    #In this example placeholder is "player_prefix" which means placeholder to use will be %alonsoplaceholders_player_prefix%
+    #This MUST BE UNIQUE and cannot be certain worlds as "developer" or "version"
+    Placeholder: "player_prefix"
+    #Available types are:
+    # STATIC - Only plain text with colors. Placeholders from PlaceholderAPI will not be replaced.
+    # NORMAL - Plain text with placeholders from PlaceholderAPI replaced.
+    # PERMISSION_STATIC - Returns value based on permission. Placeholders from PlaceholderAPI will NOT be replaced.
+    # PERMISSION - Returns value based on permission. Replace Placeholders from PlaceholderAPI.
+    # PLACEHOLDER_STATIC - Returns value based on placeholder output after parsed. Placeholders from PlaceholderAPI will not be replaced.
+    # UNIQUE_PLACEHOLDER - Returns value based on placeholder output after parsed from only one placeholder. Replaces Placeholders from PlaceholderAPI. (This is faster than PLACEHOLDER)
+    # UNIQUE_PLACEHOLDER_STATIC - Returns value based on placeholder output after parsed from only one placeholder. Replaces Placeholders from PlaceholderAPI. Replaces Placeholders from PlaceholderAPI. (This is faster than PLACEHOLDER_STATIC)
+    Type: "PERMISSION"
+    Value:
+      #When using PERMISSION type Values must be in this format:
+      # PERMISSION : Returned value.
+      #Due to yaml limitations you MUST USE commas instead of periods. They will be replaced internally.
+      #If your permission is "alonsoplaceholders.my.permission" you must enter "alonsoplaceholders,my,permission"
+      #REMEMBER EVERYTHING IS READ IN ORDER FROM TOP TO BOTTOM.
+      "alonsoplaceholders,owner": "&4%vault_player% %player_name%"
+      "alonsoplaceholders,staff": "&a%vault_player% %player_name%"
+      "alonsoplaceholders,ranked": "%vault_player% %player_name%"
+    #Permission requires a Default value in case player doesn't have any permission specified.
+    Default-value: "&7%player_name%"
+  static-placeholder-example:
+    Placeholder: "static_text" #Usage %alonsoplaceholders_static_text%
+    Type: "STATIC"
+    Value: "&eThis is an static text and WON'T replace placeholders from PlaceholdersAPI like this %player_name%!"
+  normal-placeholder-example:
+    Placeholder: "normal_text" #Usage %alonsoplaceholders_normal_text%
+    Type: "NORMAL"
+    Value: "&6This is an normal text and WILL replace placeholders from PlaceholdersAPI like this %player_name%!"
+  permission-static-placeholder-example:
+    Placeholder: "permission_static_text" #Usage %alonsoplaceholders_permission_static_text%
+    Type: "PERMISSION_STATIC"
+    Value:
+      #Remember permission must contain , instead of periods. They will be replaced INTERNALLY.
+      #Placeholders inside the messages WON'T be replaced as it is PERMISSION_STATIC type.
+      #Use PERMISSION type if you want to use at least one placeholder.
+      #REMEMBER EVERYTHING IS READ IN ORDER FROM TOP TO BOTTOM.
+      "alonsoplaceholders,owner": "&4You are an owner!"
+      "alonsoplaceholders,staff": "&6You are a staff member!"
+      "alonsoplaceholders,ranked": "&bYou are ranked player!"
+    #Permission static type requires a default value in case player doesn't have any permission specified.
+    Default-value: "&7You are a regular player!"
+  placeholder-static-placeholder-example:
+    Placeholder: "placeholder_static_text" #Usage %alonsoplaceholders_placeholder_static_text%
+    Type: "PLACEHOLDER_STATIC"
+    Value:
+      #This can be any name, doesn't matter.
+      #REMEMBER EVERYTHING IS READ IN ORDER FROM TOP TO BOTTOM.
+      check-layer-below-0:
+        Placeholder: "%player_y%"
+        #Use PLACEHOLDER type if you want to use at least one placeholder.
+        #You can specify if expected value is a regex expression by adding [REGEX] at the beginning.
+        #THESE ARE JUST EXAMPLES OF WHAT CAN BE DONE WITH THE PLUGIN. YOU SHOULD NOT USE THIS AS CALLING THIS
+        #WOULD BE HEAVY FOR YOUR SERVER AS IT'S REGEX. YOU HAVE BEEN WARNED!
+        #In this example regex is used to check if placeholder returned is 30 or lower.
+        Expected: '[REGEX]^-(\d+(\.\d+)?)$'
+        #You cannot use placeholders here.
+        #Placeholders inside the messages WON'T be replaced as it is PLACEHOLDER_STATIC type.
+        Text: "&4You are in the void!"
+      check-layer-below-30:
+        Placeholder: "%player_y%"
+        #In this example regex is used to check if placeholder returned lower than 30.
+        Expected: '[REGEX]^[0-2]?[0-9](\.\d+)?$'
+        Text: "&cYou are below layer 30!"
+      check-layer-below-60:
+        Placeholder: "%player_y%"
+        #In this example regex is used to check if placeholder returned lower than 60.
+        Expected: '[REGEX]^[0-5]?[0-9](\.\d+)?$'
+        Text: "&aYou are below layer 60!"
+      check-layer-below-130:
+        Placeholder: "%player_y%"
+        #In this example regex is used to check if placeholder returned lower than 130.
+        Expected: '[REGEX]^([1-9]?[0-9]|(1?[0-2])?[0-9])(\.\d+)?$'
+        Text: "&eYou are below layer 130!"
+    #Placeholder types requires a default value in case player placeholder doesn't match any placeholder specified.
+    Default-value: "&bYou are in the sky!"
+  placeholder-placeholder-example:
+    Placeholder: "placeholder_text" #Usage %alonsoplaceholders_placeholder_text%
+    Type: "PLACEHOLDER"
+    Value:
+      #This can be any name, doesn't matter.
+      check-layer-below-0:
+        Placeholder: "%player_y%"
+        #Use PLACEHOLDER_STATIC type if you don't plan to use at least one placeholder.
+        #You can specify if expected value is a regex expression by adding [REGEX] at the beginning.
+        #THESE ARE JUST EXAMPLES OF WHAT CAN BE DONE WITH THE PLUGIN. YOU SHOULD NOT USE THIS AS CALLING THIS
+        #WOULD BE HEAVY FOR YOUR SERVER AS IT'S REGEX. YOU HAVE BEEN WARNED!
+        Expected: '[REGEX]^-(\d+(\.\d+)?)$'
+        #Placeholders inside the messages WILL be replaced as it is PLACEHOLDER type.
+        #You can use placeholders here.
+        Text: "&4%player_name%, you are in the void!"
+      check-layer-below-30:
+        Placeholder: "%player_y%"
+        Expected: '[REGEX]^[0-2]?[0-9](\.\d+)?$'
+        Text: "&c%player_name%, you are below 30!"
+      check-layer-below-60:
+        Placeholder: "%player_y%"
+        Expected: '[REGEX]^[0-5]?[0-9](\.\d+)?$'
+        Text: "&a%player_name%, you are below 60!"
+      check-layer-below-130:
+        Placeholder: "%player_y%"
+        Expected: '[REGEX]^([1-9]?[0-9]|(1?[0-2])?[0-9])(\.\d+)?$'
+        Text: "&e%player_name%, you are below 130!"
+    #Placeholder types requires a default value in case player placeholder doesn't match any placeholder specified.
+    Default-value: "&b%player_name%, you are in the sky!"
+  unique-placeholder-placeholder-example:
+    Placeholder: "placeholder_unique_text" #Usage %alonsoplaceholders_placeholder_unique_text%
+    Type: "UNIQUE_PLACEHOLDER"
+    #In case you use UNIQUE_PLACEHOLDER type you must enter a valid Unique-placeholder value.
+    #This will be used to parse and compare everything.
+    Unique-placeholder: "%player_y%"
+    Value:
+      #This can be any name, doesn't matter.
+      check-layer-below-0:
+        #Use UNIQUE_PLACEHOLDER_STATIC type if you don't plan to use at least one placeholder.
+        #You can specify if expected value is a regex expression by adding [REGEX] at the beginning.
+        #THESE ARE JUST EXAMPLES OF WHAT CAN BE DONE WITH THE PLUGIN. YOU SHOULD NOT USE THIS AS CALLING THIS
+        #WOULD BE HEAVY FOR YOUR SERVER AS IT'S REGEX. YOU HAVE BEEN WARNED!
+        Expected: '[REGEX]^-(\d+(\.\d+)?)$'
+        #Placeholders inside the messages WILL be replaced as it is UNIQUE_PLACEHOLDER type.
+        #You can use placeholders here.
+        Text: "&4%player_name%, you are in the void!"
+      check-layer-below-30:
+        Expected: '[REGEX]^[0-2]?[0-9](\.\d+)?$'
+        Text: "&c%player_name%, you are below layer 30!"
+      check-layer-below-60:
+        Expected: '[REGEX]^[0-5]?[0-9](\.\d+)?$'
+        Text: "&a%player_name%, you are below layer 60!"
+      check-layer-below-130:
+        Expected: '[REGEX]^([1-9]?[0-9]|(1?[0-2])?[0-9])(\.\d+)?$'
+        Text: "&e%player_name%, you are below layer 130!"
+    #Placeholder types requires a default value in case player placeholder doesn't match any placeholder specified.
+    Default-value: "&b%player_name%, you are in the sky!"
+  unique-placeholder-static-placeholder-example:
+    Placeholder: "unique_placeholder_static_text" #Usage %alonsoplaceholders_unique_placeholder_static_text%
+    Type: "UNIQUE_PLACEHOLDER_STATIC"
+    #In case you use UNIQUE_PLACEHOLDER_STATIC type you must enter a valid Unique-placeholder value.
+    #This will be used to parse and compare everything.
+    Unique-placeholder: "%player_y%"
+    Value:
+      #This can be any name, doesn't matter.
+      check-layer-below-0:
+        #Use UNIQUE_PLACEHOLDER_STATIC type if you don't plan to use at least one placeholder.
+        #You can specify if expected value is a regex expression by adding [REGEX] at the beginning.
+        #THESE ARE JUST EXAMPLES OF WHAT CAN BE DONE WITH THE PLUGIN. YOU SHOULD NOT USE THIS AS CALLING THIS
+        #WOULD BE HEAVY FOR YOUR SERVER AS IT'S REGEX. YOU HAVE BEEN WARNED!
+        Expected: '[REGEX]^-(\d+(\.\d+)?)$'
+        #Placeholders inside the messages WILL be replaced as it is UNIQUE_PLACEHOLDER type.
+        #You can use placeholders here.
+        Text: "&4You are in the void!"
+      check-layer-below-30:
+        Expected: '[REGEX]^[0-2]?[0-9](\.\d+)?$'
+        Text: "&cYou are below layer 30!"
+      check-layer-below-60:
+        Expected: '[REGEX]^[0-5]?[0-9](\.\d+)?$'
+        Text: "&aYou are below layer 60!"
+      check-layer-below-130:
+        Expected: '[REGEX]^([1-9]?[0-9]|(1?[0-2])?[0-9])(\.\d+)?$'
+        Text: "&eYou are below layer 130!"
+    #Placeholder types requires a default value in case player placeholder doesn't match any placeholder specified.
+    Default-value: "&bYou are in the sky!"
+  #MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES!
+  #MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES!
+  #MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES! MORE EXAMPLES!
+  #Remember you need to edit this whole config and make it fit to your needs.
+  #These are other examples of what you can use this plugin for.
+  replace-whitelist-placeholder:
+    Placeholder: "better_whitelist" #Usage %alonsoplaceholders_better_whitelist%
+    Type: "UNIQUE_PLACEHOLDER_STATIC"
+    Unique-placeholder: "%server_has_whitelist%"
+    Value:
+      enabled:
+        Expected: "yes"
+        Text: "&aEnabled"
+      disabled:
+        Expected: "no"
+        Text: "&cDisabled"
+    Default-value: "&7Unknown"
+  #Only available for 1.16+
+  rbg-red-placeholder:
+    Placeholder: "rbg_red" #Usage %alonsoplaceholders_rbg_red%
+    Type: "STATIC"
+    Value: "#f22a18"
+  rbg-pink-placeholder:
+    Placeholder: "rbg_pink" #Usage %alonsoplaceholders_rbg_pink%
+    Type: "STATIC"
+    Value: "#ff699d"
+  rbg-line-placeholder:
+    Placeholder: "rbg_lime" #Usage %alonsoplaceholders_rbg_lime%
+    Type: "STATIC"
+    Value: "#84ff00"
+  rbg-purple-placeholder:
+    Placeholder: "rbg_purple" #Usage %alonsoplaceholders_rbg_purple%
+    Type: "STATIC"
+    Value: "#6a13ed"
+  #This is an example. It will return something like: "[OWNER] AlonsoAliaga [REKT]" or "[MOD] AlonsoAliaga [LOVER]"
+  #depending on your vault prefix, player name and tag selected. AlonsoTags is one of my plugins.
+  #It allows your players to select the tag they want (from the list you create). Go check it out on
+  # https://alonsoaliaga.com/AlonsoTagsPro
+  player-with-prefix-and-tag-placeholder:
+    Placeholder: "player_display_prefix_tag" #Usage %alonsoplaceholders_player_display_prefix_tag%
+    Type: "NORMAL"
+    Value: "%vault_prefix%%player_name%%alonsotags_tag_tab"
+  player-direction-placeholder:
+    Placeholder: "player_direction" #Usage %alonsoplaceholders_player_direction%
+    Type: "UNIQUE_PLACEHOLDER_STATIC"
+    Unique-placeholder: "%player_direction%"
+    Value:
+      n:
+        Expected: "N"
+        Text: "&7You're facing &aNorth&7!"
+      ne:
+        Expected: "NE"
+        Text: "&7You're facing &aNorth-east&7!"
+      e:
+        Expected: "E"
+        Text: "&7You're facing &aEast&7!"
+      se:
+        Expected: "SE"
+        Text: "&7You're facing &aSouth-east&7!"
+      s:
+        Expected: "S"
+        Text: "&7You're facing &aSouth&7!"
+      sw:
+        Expected: "SW"
+        Text: "&7You're facing &aSouth-west&7!"
+      w:
+        Expected: "W"
+        Text: "&7You're facing &aWest&7!"
+      nw:
+        Expected: "NW"
+        Text: "&7You're facing &aNorth-west&7!"
+    Default-value: "&7Unknown"
