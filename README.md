@@ -11,4 +11,4 @@ This plugin allows servers owners to create custom placeholder to fit server nee
 - [Support server](https://alonsoaliaga.com/discord)
 
 ## Plugin statistics
-![bStats.org](https://bstats.org/signatures/bukkit/AlonsoPlaceholder.svg)
+![bStats.org](https://bstats.org/signatures/bukkit/AlonsoPlaceholders.svg)
